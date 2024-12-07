@@ -1,0 +1,18 @@
+{
+  "name": "sv1",
+  "version": "1.0.0",
+  "main": "sv1.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/preset-env": "^7.26.0",
+    "@types/jest": "^29.5.14",
+    "babel-jest": "^29.7.0"
+  }
+}
