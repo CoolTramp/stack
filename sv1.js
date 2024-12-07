@@ -11,12 +11,12 @@ export class StackTest extends LinkedList {
     const node = new LinkedListNode(value);
 
     if (!this._head) {
-      this.createHeadAndTail(node);
+      this._createHeadAndTail(node);
       this._min = node.value;
     } else {
       this._tail.next = node;
       this._tail = node;
-      this.updateMinValue(node.value);
+      this._updateMinValue(node.value);
     }
 
     this._length++;
@@ -31,7 +31,7 @@ export class StackTest extends LinkedList {
     this._length--;
 
     if (this._head) {
-      this.findNewMinValue();
+      this._findNewMinValue();
     } else {
       this._min = Infinity;
     }
@@ -39,21 +39,17 @@ export class StackTest extends LinkedList {
     return poppedValue;
   }
 
-  updateMinValue(value) {
+  _updateMinValue(value) {
     this._min = Math.min(this._min, value);
   }
 
-  findNewMinValue() {
+  _findNewMinValue() {
     let node = this._head;
     this._min = Infinity;
     while (node) {
-      this.updateMinValue(node.value);
+      this._updateMinValue(node.value);
       node = node.next;
     }
-  }
-
-  get showMin() {
-    return this._min;
   }
 
   show() {
@@ -66,6 +62,10 @@ export class StackTest extends LinkedList {
       if (node) str += " <- ";
     }
     process.stdout.write(str);
+  }
+
+  get showMin() {
+    return this._min;
   }
 
   get length() {
